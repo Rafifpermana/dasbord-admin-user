@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import facebook from "../assets/facebook.png";
 import google from "../assets/google.png";
 import github from "../assets/github.png";
@@ -7,11 +8,12 @@ const Login = () => {
   // State untuk menyimpan input email dan password
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   // Fungsi yang akan dipanggil saat form disubmit
   const handleSubmit = (e) => {
     e.preventDefault(); // Mencegah reload halaman
-    console.log("Email:", email, "Password:", password); // Debugging: menampilkan email dan password di console
+    console.log("Email:", email, "Password:", password);
   };
 
   return (
@@ -106,9 +108,12 @@ const Login = () => {
         {/* Link untuk mendaftar akun baru */}
         <div className="mt-6 text-center text-sm text-gray-600">
           Don&apos;t have an account?{" "}
-          <a href="#" className="text-indigo-600 hover:text-indigo-500">
+          <button
+            onClick={() => navigate("/register")} // Tambahkan navigasi ke register
+            className="font-medium text-indigo-600 hover:text-indigo-500"
+          >
             Create account
-          </a>
+          </button>
         </div>
       </div>
     </div>

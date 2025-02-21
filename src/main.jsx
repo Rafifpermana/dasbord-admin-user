@@ -1,10 +1,13 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
 import "./index.css";
-import Login from "./pages/Login.jsx";
+import App from "./App.jsx"; // Perbaiki path jika perlu
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <Login />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </StrictMode>
 );
